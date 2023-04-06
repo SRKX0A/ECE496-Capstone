@@ -13,7 +13,7 @@ import { faCheckSquare, faCoffee, faDeleteLeft, faEye, faPlus, faCog, faEdit,faM
  library.add( faCheckSquare, faCoffee, faDeleteLeft, faEye, faPlus,faCog, faEdit, faMultiply, faChevronRight, faChevronLeft, faUserShield, faTabletScreenButton, 
   faTabletButton, faUsers,faCircleXmark,faCircle, faHeartPulse, faBolt, faMagnifyingGlass, faTableColumns, faBuilding, faBars, faCirclePlus, faFileInvoiceDollar, faFileLines,
    faFlag, faDoorClosed,faPersonShelter, faTicket, faAddressBook, faLocationDot, faBox, faCube, faIdCard, faCircleInfo,faScrewdriverWrench, faReply, 
-   faKey,faCreditCard, faUser, faWallet, faArrowRight, faPhone, faEnvelope, faWrench, faClock, faDownload, faFloppyDisk, faHouse, faPlay)
+   faKey,faCreditCard, faUser, faWallet, faArrowRight, faPhone, faEnvelope, faWrench, faClock, faDownload, faFloppyDisk, faHouse, faPlay, faDownload)
    
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

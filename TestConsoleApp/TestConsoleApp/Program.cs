@@ -6,8 +6,8 @@ using System.Diagnostics;
 
 var startingPath = @"C:\Users\abdul\Desktop\Capstone\ECE496-Capstone\src\cli\main.py";
 var pythonPath = @"C:\Users\abdul\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\python3.7.exe";
-var inputPath = @"C:\Users\abdul\Desktop\Capstone\TestFolder\TestVideo.mp4";
-var outputPath = @"C:\Users\abdul\Desktop\Capstone\TestFolder";
+var inputPath = @"C:\Users\abdul\Desktop\Capstone\TestFolder\SampleRateTest1_G.wav";
+var outputPath = @"C:\Users\abdul\Desktop\Capstone\TestFolder\FinalVid.wav";
 //ScriptEngine engine = Python.CreateEngine();
 //engine.ExecuteFile(startingPath);
 
@@ -29,8 +29,8 @@ string output = p.StandardOutput.ReadToEnd();
 string error = p.StandardError.ReadToEnd();
 p.WaitForExit();
 
-Console.WriteLine(output);
-Console.WriteLine(error);
+Console.WriteLine("Output: " + output);
+Console.WriteLine("Error: " + error);
 
 
 

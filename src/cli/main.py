@@ -46,8 +46,8 @@ def run_pipeline(filename, output_filename=None, audio_chunk_size=20, run_pipeli
 
     transcript_and_emissions = []
     for offset, path in tqdm(offset_paths, desc="Generating transcripts and extracting acoustic features"):
-        transcript, emissions, waveform_size = stage2.generate(path)
-        transcript_and_emissions.append((transcript, emissions, waveform_size, path, offset))
+        transcript, emissions, waveform_size = stage2.generate(path.name)
+        transcript_and_emissions.append((transcript, emissions, waveform_size, path.name, offset))
 
     with open("transcript.txt", "w") as f:
         for transcript, *_ in transcript_and_emissions:

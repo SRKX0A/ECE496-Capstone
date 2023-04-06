@@ -20,4 +20,4 @@ def edit(filename: str, timestamps, output_filename=None):
     if filename.endswith(".wav"):
         clip.write_audiofile(filename=edited_filename)
     elif filename.endswith(".mp4"):
-        clip.write_videofile(filename=edited_filename)
+        clip.write_videofile(filename=edited_filename, codec="libx264")
