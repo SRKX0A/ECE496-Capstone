@@ -55,14 +55,6 @@ export default function () {
     if (blob != null) download(blob, finalName);
   };
 
-  useEffect(() => {
-    console.log(videoFilePath);
-    console.log(file);
-  }, [videoFilePath]);
-
-  useEffect(() => {
-    console.log(newVideoFilePath);
-  }, [newVideoFilePath]);
 
   return (
     <div className="card">
