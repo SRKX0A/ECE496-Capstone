@@ -58,17 +58,36 @@ export default function () {
 
   return (
     <div className="card">
-      <div className="card-header">
-        <h4>Video</h4>
+      <div className="card-header ">
+        <div className="col-12 row">
+            <div className="col-12 mb-2">
+                <h2>Video Editor</h2>
+            </div>
+            <div className="col-6">
+                <h3 className="">Instructions: </h3>
+                <h4>1. Choose A File And Press Run</h4>
+                <h4>2. Wait For Processing</h4>
+                <h4>3. Download Result</h4>
+            </div>
+        </div>
         {loading == true && <LoadingPageComponent/>}
       </div>
       <div className="card-body row">
-        <div className="col-6">
-                <input type="file" onChange={(e: any) => handleVideoUpload(e)} />
+        <div className="col-6 row">
+                <div className="col-6">
+                    <h3>Input</h3>
+                </div>
+                <div className="col-6">
+                    <input type="file" onChange={(e: any) => handleVideoUpload(e)} />
+                </div>
         </div>
-        <div className="col-6">
+        <div className="col-6 row">
+            <div className="col-6">
+                <h3>Output</h3>
+            </div>
             {finalName != "" && (
                     <button className="btn btn-dribbble float-end rounded-3" onClick={() => downloadVid()}>
+                        <span>Download</span>
                         <FontAwesomeIcon icon="download" className="fs-3" />
                     </button>
                 )}
@@ -89,8 +108,7 @@ export default function () {
             </div>
           )}
         </div>
-        {showNewVideo != false && (
-          <div className="col-6 mt-3">
+        <div className="col-6 mt-3">
             <div className="">
             <ReactPlayer
                 url={newVideoFilePath!}
@@ -99,8 +117,7 @@ export default function () {
                 controls={true}
             />
             </div>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
