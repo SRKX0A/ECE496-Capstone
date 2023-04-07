@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace WebUi.Scripts
 {
@@ -7,7 +8,7 @@ namespace WebUi.Scripts
         public async Task Run(string inputPath, string outputPath)
         {
             
-            var startingPath = @"C:\Users\abdul\Desktop\Capstone\ECE496-Capstone\src\cli\main.py";
+            var startingPath = @"C:\Users\abdul\source\repos\SRKX0A\ECE496-Capstone\src\cli\main.py";
             var pythonPath = @"C:\Users\abdul\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\python3.7.exe";
 
 
@@ -25,12 +26,25 @@ namespace WebUi.Scripts
                 p.StartInfo = start;
 
                 p.Start();
-                string output = p.StandardOutput.ReadToEnd();
-                string error = p.StandardError.ReadToEnd();
-                p.WaitForExit();
+                //string output = p.StandardOutput.ReadToEnd();
+                //string error = p.StandardError.ReadToEnd();
+                //p.WaitForExit();
 
-                Console.WriteLine("Output: " + output);
-                Console.WriteLine("Error: " + error);
+                var stdErr = p.StandardError;
+                var stdOut = p.StandardOutput;
+
+                var resultAwaiter = stdOut.ReadToEndAsync();
+                var errResultAwaiter = stdErr.ReadToEndAsync();
+
+                await p.WaitForExitAsync();
+
+                await Task.WhenAll(resultAwaiter, errResultAwaiter);
+
+                var result = resultAwaiter.Result;
+                var errResult = errResultAwaiter.Result;
+
+                Console.WriteLine("Output: " + result);
+                Console.WriteLine("Error: " + errResult);
 
             }
         }

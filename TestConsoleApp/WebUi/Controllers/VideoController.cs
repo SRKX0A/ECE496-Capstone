@@ -18,8 +18,8 @@ namespace Emerald.Controllers
         public async Task<IActionResult> EditVideo([FromForm] IFormFile file)
         {
             Console.WriteLine("Hello");
-            string outputPath = $"C:\\Users\\abdul\\Desktop\\Capstone\\TestFolder\\FinalReact";
-            string filePath = $"C:\\Users\\abdul\\Desktop\\Capstone\\TestFolder\\React";
+            string outputPath = $"C:\\Capstone\\FinalReact";
+            string filePath = $"C:\\Capstone\\React";
             string finalName = "FinalVid";
 
             Console.WriteLine("Creating And Saving Video");
@@ -60,12 +60,19 @@ namespace Emerald.Controllers
             byte[] bytes;
             try
             {
-                var filestream = System.IO.File.OpenRead($"{outputPath}");
-                using (var memoryStream = new MemoryStream())
+                using (var filestream = System.IO.File.OpenRead($"{outputPath}"))
                 {
-                    filestream.CopyTo(memoryStream);
-                    bytes = memoryStream.ToArray();
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await filestream.CopyToAsync(memoryStream);
+                        bytes = memoryStream.ToArray();
+                    }
                 }
+
+                if (System.IO.File.Exists(filePath))
+                    System.IO.File.Delete(filePath);
+                if (System.IO.File.Exists(outputPath))
+                    System.IO.File.Delete(outputPath);
             }
             catch(Exception ex)
             {

@@ -8,7 +8,7 @@ export default function LoadingPageComponent({text}: {text?:string}) {
             <div className=" align-middle">
                 <h1 className="text-center">
                     <span>{text == null ? '' : text}</span>
-                    <div  className="me-2 spinner-grow text-success"></div>
+                    <div  className="ms-2 me-2 spinner-border text-secondary"></div>
                 </h1>
 
             </div>

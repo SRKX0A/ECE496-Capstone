@@ -48,6 +48,7 @@ export default function () {
       setLoading(false);
     } catch (e: any) {
       alert(e);
+      setLoading(false);
     }
   };
 
@@ -61,7 +62,7 @@ export default function () {
       <div className="card-header ">
         <div className="col-12 row">
             <div className="col-12 mb-2">
-                <h2>Video Editor</h2>
+                <h2>Automatic Audio/Video Content Editing </h2>
             </div>
             <div className="col-6">
                 <h3 className="">Instructions: </h3>
@@ -70,7 +71,7 @@ export default function () {
                 <h4>3. Download Result</h4>
             </div>
         </div>
-        {loading == true && <LoadingPageComponent/>}
+        {loading == true && <LoadingPageComponent text={"Processing Data"}/>}
       </div>
       <div className="card-body row">
         <div className="col-6 row">
@@ -78,30 +79,32 @@ export default function () {
                     <h3>Input</h3>
                 </div>
                 <div className="col-6">
-                    <input type="file" onChange={(e: any) => handleVideoUpload(e)} />
+                    {loading != true && <input type="file" onChange={(e: any) => handleVideoUpload(e)} />}
                 </div>
         </div>
         <div className="col-6 row">
             <div className="col-6">
                 <h3>Output</h3>
             </div>
-            {finalName != "" && (
-                    <button className="btn btn-dribbble float-end rounded-3" onClick={() => downloadVid()}>
-                        <span>Download</span>
-                        <FontAwesomeIcon icon="download" className="fs-3" />
-                    </button>
-                )}
+            <div className="col-6">
+              {finalName != "" && loading != true && (
+                      <button className="btn btn-dribbble float-end rounded-3" onClick={() => downloadVid()}>
+                          <span>Download </span>
+                          <FontAwesomeIcon icon="download" className="fs-3" />
+                      </button>
+                  )}
+            </div>
         </div>
         <div className="col-6 mt-3">
           {videoFilePath != null && (
-            <div>
+            <div >
               <ReactPlayer
                 url={videoFilePath!}
                 width="75%"
-                height="25%"
+                height="350px"
                 controls={true}
               />
-              <button className="btn btn-info" onClick={() => editVideo()} disabled={videoFilePath == "videos/demo_video.MP4"}>
+              <button className="btn btn-info mt-3" onClick={() => editVideo()} disabled={videoFilePath == "videos/demo_video.MP4"}>
                 <FontAwesomeIcon icon="play" type="button" />
                 <span className="ms-2">Run</span>
               </button>
@@ -113,7 +116,7 @@ export default function () {
             <ReactPlayer
                 url={newVideoFilePath!}
                 width="75%"
-                height="25%"
+                height="350px"
                 controls={true}
             />
             </div>
