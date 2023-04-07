@@ -12,9 +12,11 @@ def edit(filename: str, timestamps, output_filename=None):
     elif filename.endswith(".mp4"):
         clip = mvpe.VideoFileClip(filename)
 
+    offset = 0
     for timestamp in timestamps:
-        start = str(timedelta(seconds=timestamp.start))
-        end = str(timedelta(seconds=timestamp.end))
+        start = str(timedelta(seconds=timestamp.start - offset))
+        end = str(timedelta(seconds=timestamp.end  - offset ))
+        offset = offset + (timestamp.end - timestamp.start)
         clip = clip.cutout(start, end)
 
     if filename.endswith(".wav"):
