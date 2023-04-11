@@ -8,12 +8,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckSquare, faCoffee, faDeleteLeft, faEye, faPlus, faCog, faEdit,faMultiply, faChevronRight, faChevronLeft, faUserShield, faTabletScreenButton, faTabletButton,
   faUsers, faCircleXmark,faCircle, faHeartPulse, faBolt, faMagnifyingGlass, faTableColumns, faBuilding, faBars, faCirclePlus, faFileInvoiceDollar, faFileLines, 
   faFlag, faDoorClosed, faPersonShelter, faTicket, faAddressBook, faLocationDot, faBox, faCube, faIdCard, faCircleInfo, faScrewdriverWrench, faReply, faKey, faCreditCard, faUser,
- faWallet, faArrowRight, faPhone, faEnvelope, faWrench, faClock, faDownload, faFloppyDisk, faHouse, faPlay} from '@fortawesome/free-solid-svg-icons'
+ faWallet, faArrowRight, faPhone, faEnvelope, faWrench, faClock, faDownload, faFloppyDisk, faHouse, faPlay, faClapperboard, faVideo, faPhotoFilm, faFilm, faFileVideo} from '@fortawesome/free-solid-svg-icons'
 
  library.add( faCheckSquare, faCoffee, faDeleteLeft, faEye, faPlus,faCog, faEdit, faMultiply, faChevronRight, faChevronLeft, faUserShield, faTabletScreenButton, 
   faTabletButton, faUsers,faCircleXmark,faCircle, faHeartPulse, faBolt, faMagnifyingGlass, faTableColumns, faBuilding, faBars, faCirclePlus, faFileInvoiceDollar, faFileLines,
    faFlag, faDoorClosed,faPersonShelter, faTicket, faAddressBook, faLocationDot, faBox, faCube, faIdCard, faCircleInfo,faScrewdriverWrench, faReply, 
-   faKey,faCreditCard, faUser, faWallet, faArrowRight, faPhone, faEnvelope, faWrench, faClock, faDownload, faFloppyDisk, faHouse, faPlay, faDownload)
+   faKey,faCreditCard, faUser, faWallet, faArrowRight, faPhone, faEnvelope, faWrench, faClock, faDownload, faFloppyDisk, faHouse, faPlay, faDownload, faClapperboard, faVideo, faPhotoFilm
+   ,faFilm, faFileVideo)
    
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

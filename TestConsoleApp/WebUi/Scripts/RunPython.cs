@@ -25,10 +25,13 @@ namespace WebUi.Scripts
 
                 p.StartInfo = start;
 
+
+
                 p.Start();
                 //string output = p.StandardOutput.ReadToEnd();
                 //string error = p.StandardError.ReadToEnd();
                 //p.WaitForExit();
+
 
                 var stdErr = p.StandardError;
                 var stdOut = p.StandardOutput;

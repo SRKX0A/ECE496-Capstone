@@ -20,3 +20,11 @@ export type WizardOption = {
     label: string;
     icon: IconProp;
 };
+
+export type TimeStamp = {
+    word: string;
+    confidence: number;
+    startTime: number;
+    endTime: number;
+    duration: number;
+}
